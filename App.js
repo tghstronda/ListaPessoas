@@ -1,33 +1,36 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import Header from './src/components/Header';
 
-export default class App extends React.Component {
-  renderList(){
-      const names = 
-      [
-        'James Rosa de Lima',
-        'Rodrigo Santoro',
-        'Daniela Mercuri',
-        'Pericles de Souza',
-      ];
+import Axio from 'axios';
 
-      const textElements = names.map(name => {
-        return <Text key = {name}>{name}</Text>
-      });
-      return textElements;
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      peoople: []
+    };
   }
 
-  render(){ 
+  componentDidMount() {
+    Axio
+      .get('https://randomuser.me/api/?nat=br&results=5')
+      .then(response => {
+        const { results } = response.data;
+        this.setState({
+          peoople: results
+        });
+      });
+  }
+  renderList() {
+  }
+  render() {
     return (
       <View>
-        <Header title = "Lista de Pessoas"/>
-        {this.renderList()}
+        <Header title="Lista de Pessoas" />
+
       </View>
     );
   }
-  /**Há diversos momentos quando você está desenvolvendo uma aplicação Web 
-   * que podem necessitar consumir e exibir dados de uma API.
-   *  Há várias maneiras de se fazer isso, mas a maneira mais popular é usando axios */
 }
