@@ -24,12 +24,18 @@ export default class App extends React.Component {
       });
   }
   renderList() {
+      const textElements = this.state.peoople.map(peoople => {
+      const { first } = peoople.name;
+      return <Text key= {first}>{first} </Text>
+      });
+      return textElements;
   }
+  //Identar Ctrl + Shift + i
   render() {
     return (
       <View>
         <Header title="Lista de Pessoas" />
-
+        {this.renderList()}
       </View>
     );
   }

@@ -1,0 +1,4 @@
+Funções de Callback 
+Callback é uma função que é usada como "callback". 
+Ela é tipicamente passada como argumento de outra função e/ou chamada quando um evento for acontecido, 
+ou quando uma parte de código receber uma resposta de que estava à espera.
