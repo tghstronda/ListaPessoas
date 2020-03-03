@@ -19,10 +19,13 @@ const style = StyleSheet.create({
     container: {
         marginTop: 30,
         //flex: 1,
-        backgroundColor: '#008b8b',
+        backgroundColor: '#1C1C1C',
         alignItems: 'center',
+        height: 70,
         justifyContent: 'center',
-        borderRadius: 25,
+        borderRadius: 10,
+        marginLeft: 10,
+        marginRight: 10,
     },
     title: {
         fontSize: 30,
