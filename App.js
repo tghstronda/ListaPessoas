@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return (
       <View>
         <Header title="Lista de Pessoas" />
-        <PeopleList peoples = {this.state.peoples}/>
+        <PeopleList peoples={this.state.peoples} />
       </View>
     );
   }
