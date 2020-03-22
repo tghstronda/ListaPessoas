@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { apisAreAvailable } from 'expo';
-import { KeyboardAvoidingView } from 'react-native';
+// import { apisAreAvailable } from 'expo';
+// import { KeyboardAvoidingView } from 'react-native';
+
 
 const Header = (props) => (
 
