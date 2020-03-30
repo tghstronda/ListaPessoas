@@ -1,25 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
-import {CapitalizeFirstLetter} from '../util';
+import { CapitalizeFirstLetter } from '../util';
 
 const PeopleListItem = props => {
     const { people } = props;
     const { title, first, last } = people.name;
-
     return (
-        <View style={styles.line}>
-            <Image style={styles.avatar} source={{uri: people.picture.thumbnail}} />
-            <Text style={styles.lineText}>
-                {`${
-                    CapitalizeFirstLetter(title)
-                } ${
-                    CapitalizeFirstLetter(first)
-                } ${
-                    CapitalizeFirstLetter(last)
-               }`}
-            </Text>
-        </View>
+        < TouchableOpacity onPress={() => console.log('clicou em mim!!!', first)}>
+            <View style={styles.line}>
+                <Image style={styles.avatar} source={{ uri: people.picture.thumbnail }} />
+                <Text style={styles.lineText}>
+                    {`${
+                        CapitalizeFirstLetter(title)
+                        } ${
+                        CapitalizeFirstLetter(first)
+                        } ${
+                        CapitalizeFirstLetter(last)
+                        }`}
+                </Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
@@ -39,14 +40,21 @@ const styles = StyleSheet.create({
     lineText: {
         fontSize: 20,
         color: '#FFFAFA',
-        paddingLeft: 20,
+        paddingLeft: 10,
+        flex: 8,
+
+        //wflex nesse cso vai dividir o container em partes sendo 8 para o LineTexT e 1 para o avatar
     },
     avatar: {
-        aspectRatio:1,
-        height:30,
+        aspectRatio: 1,
+        //height:30, Não faz mais efeito devido ao flex
         borderRadius: 10,
-        //aspectRadio não deixa deconfigurar a qualidade da imagem
+        //aspectRadio não deixa deconfigurar a qualidade da imagem ao mudar de device
+
+        marginLeft: 5,
+        flex: 1,
     }
 });
 
 export default PeopleListItem;
+//TouchableOpacity deixa as coisas clicaveis
